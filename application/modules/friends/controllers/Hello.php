@@ -82,7 +82,7 @@ class Hello extends MX_Controller
             
             else{
 
-                $this->session->set_flashdata("error_message","could not find you friend");
+                $this->session->set_flashdata("error_message","could not find".$friend_id."your friend");
                 redirect('friends/hello');
             }
             
