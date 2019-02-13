@@ -142,8 +142,7 @@ class Hello extends MX_Controller
 
             
             $data["validation_errors"] = validation_errors();
-            $this->load->view("site/layouts/includes/navigation");
-            $this->load->view("site/layouts/includes/header");
+            $this->load->view("site/layouts/layout");
             $this->load->view("friends/add_friends", $data);
             
         }

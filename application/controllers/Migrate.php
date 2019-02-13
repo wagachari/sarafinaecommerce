@@ -1,5 +1,5 @@
 <?php
-
+if(!defined ('BASEPATH'))exit ("No direct script allowed");
 class Migrate extends CI_Controller
 {
     public function index()
@@ -17,3 +17,4 @@ class Migrate extends CI_Controller
         }
     }
 }
+?>

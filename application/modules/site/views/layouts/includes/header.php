@@ -6,5 +6,9 @@
     <title><?php echo $title;?></title>
 
     <!-- Bootstrap core CSS -->
-<link href="<?php echo base_url();?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link href="<? echo base_url();?>assets/themes/custom/styles.css/" rel="stylesheet"/>
+    <link href="<?php echo base_url();?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <?php if(isset($login)){?>
+        <link href="<?php echo base_url();?>assets/themes/custom/login.css" rel="stylesheet"/>
+<?php }  else {?>
+<link href="<?php echo base_url();?>assets/themes/custom/styles.css" rel="stylesheet"/>
+<?php } ?>

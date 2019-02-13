@@ -31,13 +31,13 @@
          
         </a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link active" href="#">
           <span data-feather="home"></span>
-          <?php echo anchor("friends/friends/execute_search","Hello"); ;?> <span class="sr-only">(current)</span>
+          <//?php echo anchor("friends/friends/execute_search","Hello"); ;?> <span class="sr-only">(current)</span>
          
         </a>
-      </li>
+      </li> -->
      
       
     </ul>

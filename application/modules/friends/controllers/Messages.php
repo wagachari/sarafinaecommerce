@@ -4,9 +4,8 @@ class Messages extends MX_Controller
      function __construct(){
         parent:: __construct();
         $this->load->model("messages_model");
-        $this->load->view("site/layouts/includes/navigation");
-        $this->load->view("site/layouts/includes/header");
-        $this->load->view("friends/sidebar");
+        $this->load->model("site/site_model");
+        $this->load->view("site/layouts/layout");
       
      }
 
@@ -77,8 +76,7 @@ class Messages extends MX_Controller
             }
         }
         $data["validation_errors"] = validation_errors();
-        $this->load->view("site/layouts/includes/navigation");
-        $this->load->view("site/layouts/includes/header");
+        
         $this->load->view("add_message", $data);
          
     }

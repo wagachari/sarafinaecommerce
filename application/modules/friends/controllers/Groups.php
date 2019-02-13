@@ -4,7 +4,7 @@ class Groups extends MX_Controller
      function __construct(){
         parent:: __construct();
         $this->load->model("groups_model");
-        $this->load->model("site/site_model")
+        $this->load->model("site/site_model");
        
       
      }
@@ -20,14 +20,22 @@ class Groups extends MX_Controller
         // $data['num links']=15;
         // $data['records']=$this->db->select('friend_name,friend_age,friend_gender,friend_hobby')->get('friend',$data['per_page'],$this->uri->segment(3));
         // $this->pagination->initialize($data);
-        $data = array(
+        
+
+        
+        
+        $v_data = array(
             "all_groups" => $this->groups_model->get_group_info(),
         );
         // $this->load->view("site/layouts/includes/navigation");
         // $this->load->view("site/layouts/includes/header");
-       
-        
-        $this->load->view("friends/all_groups", $data);
+        $data = array(
+            "title" => "ecommerce",
+            "all_groups" => $this->groups_model->get_group_info(),
+            "content" =>$this->load->view("friends/all_groups",$v_data,TRUE)
+        );
+        $this->load->view("site/layouts/layout", $data);
+      
         // $this->load->view("friends/sidebar");
         
         
@@ -77,8 +85,7 @@ class Groups extends MX_Controller
             }
         }
         $data["validation_errors"] = validation_errors();
-        $this->load->view("site/layouts/includes/navigation");
-        $this->load->view("site/layouts/includes/header");
+        $this->load->view("site/layouts/layout");
         $this->load->view("add_groups", $data);
          
     }
