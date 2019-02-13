@@ -5,7 +5,6 @@ class Hello extends MX_Controller
         parent:: __construct();
         $this->load->model("friends_model");
         $this->load->model("site/site_model");
-        $this->load->view("site/layouts/includes/navigation");
        
       
      }
