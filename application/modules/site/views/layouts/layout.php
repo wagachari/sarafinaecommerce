@@ -3,6 +3,7 @@
 <html lang="en">
   <head>
  <?php $this->load->view("site/layouts/includes/header");?>
+ <title> <?php echo $title;?></title>
   </head>
   <body>
 

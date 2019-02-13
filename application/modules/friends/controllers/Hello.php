@@ -74,9 +74,13 @@ class Hello extends MX_Controller
                     "friend_image" => $friend_image,
                     "validation_errors" => $validation_errors,
                 );
-                $this->load->view("site/layouts/includes/navigation");
-                $this->load->view("site/layouts/includes/header");
+               
                 $this->load->view("friends/welcome_here", $data);
+                
+        $data = array(
+            "title" => "ecommerce",
+                   );
+        $this->load->view("site/layouts/layout", $data);
             }
             
             else{
