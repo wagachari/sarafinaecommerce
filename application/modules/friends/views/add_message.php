@@ -22,7 +22,7 @@
 ?>
 		<?php echo form_open($this->uri->uri_string()); ?>
 		<div>
-			<label for='first_name'>Message </label>
+			<label for='message'>Message </label>
 			<input type="text" name="message">
 		</div>
 		<div>

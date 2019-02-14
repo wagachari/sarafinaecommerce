@@ -21,50 +21,20 @@ class Groups extends MX_Controller
         // $data['records']=$this->db->select('friend_name,friend_age,friend_gender,friend_hobby')->get('friend',$data['per_page'],$this->uri->segment(3));
         // $this->pagination->initialize($data);
         
-
-        
-        
-        $v_data = array(
-            "all_groups" => $this->groups_model->get_group_info(),
+        $v_data = array("all_groups" => $this->groups_model->get_group_info(),
         );
-        // $this->load->view("site/layouts/includes/navigation");
-        // $this->load->view("site/layouts/includes/header");
+                
+
         $data = array(
-            "title" => "ecommerce",
-            "all_groups" => $this->groups_model->get_group_info(),
-            "content" =>$this->load->view("friends/all_groups",$v_data,TRUE)
+            "title" => "Groups",
+            "content" =>$this->load->view("friends/all_groups", $v_data, TRUE)
         );
         $this->load->view("site/layouts/layout", $data);
-      
-        // $this->load->view("friends/sidebar");
-        
+
+
         
     }
-// public function welcome($friend_id)
-//     {
-//         $my_group = $this->groups_model->get_single($friend_id);
-//         //form validation
-//         if ($my_group->num_rows() > 0) {
-//             $row = $my_group->row();
-//             $group = $row->group_name;
-//             $validation_errors='';
-//             $data = array(
-//                 "group_name" => $group_name,
-                
-//                 "validation_errors" => $validation_errors,
-//             );
-//             $this->load->view("site/layouts/includes/navigation");
-//             $this->load->view("site/layouts/includes/header");
-//             $this->load->view("group/welcome_here", $data);
-//         }
-        
-//         else{
 
-//             $this->session->set_flashdata("error_message","could not find you friend");
-//             redirect('group/groups');
-//         }
-        
-//     }
     public function new_group()
     {
         //form validation
@@ -84,9 +54,17 @@ class Groups extends MX_Controller
                 $this->session->set_flashdata("error_message","unable to add friend");
             }
         }
-        $data["validation_errors"] = validation_errors();
-        $this->load->view("site/layouts/layout");
-        $this->load->view("add_groups", $data);
+        
+        $v_data = array("validation_errors" => validation_errors());
+        
+
+        $data = array(
+            "title" => "new group",
+            "content" =>$this->load->view("friends/add_groups", $v_data, TRUE)
+        );
+        $this->load->view("site/layouts/layout", $data);
+         
+       
          
     }
 }

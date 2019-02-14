@@ -16,7 +16,7 @@
        $error=$this->session->flashdata("error_message");
        ?>
        <h1>Write Message</h1>
-       <?php echo anchor ("friends/messages/new_message/", "Write Message"); ?>
+       <?php echo anchor ("friends/messages/new_message", "Write Message"); ?>
        <table class="table">
            <tr>
            <th>Count
@@ -51,8 +51,8 @@
                             <!-- <td><img class="thumbnail" style="height: 100px; width: 100px;" src="<//?php echo base_url(); ?>uploads/images/<//?php echo $row->friend_image; ?>"></td> -->
                            
                             <td> 
-                            <!-- <//?php echo anchor("groups/groups/welcome/".$id,"View");?> -->
-                    <a href="<?php echo site_url()?>friends/messages/welcome/">
+                            <!-- <//?php echo anchor("friends/messages/welcome/".$id,"Add message");?> -->
+                            <!-- <a href="<//?php echo site_url()?>friends/messages/all_messages/"></a> -->
                         </td>
                     </tr>
                     <?php

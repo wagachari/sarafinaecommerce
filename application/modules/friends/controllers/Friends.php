@@ -26,4 +26,5 @@ class Friends extends MX_Controller
 
         
     }
+    
 }?>

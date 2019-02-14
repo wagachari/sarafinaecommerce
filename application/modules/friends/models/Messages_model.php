@@ -15,12 +15,16 @@ $this->db->insert("message",$data);
 //     return $this->db->get("group_table");
 //    }
    public function get_message_info(){
-   $this->db->select('message.message_id, message.message, message.created,
-   friend_group_table.friend_group_table_id');
-   $this->db->from('message')->join('friend_group_table', 'message.message_id = friend_group_table.friend_group_table_id');
-   $query = $this->db->get();
+   // $this->db->select('message.message_id, message.message, message.created,
+   // friend_group_table.friend_group_table_id');
+   // $this->db->from('message')->join('friend_group_table', 'message.message_id = friend_group_table.friend_group_table_id');
+   $this->db->order_by("created","DESC");
+  
+   return $this->db->get('message');
+  
 
-   return $query;
+  
+   
    }
 }
 ?>

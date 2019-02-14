@@ -69,11 +69,20 @@
                             <td><?php echo $hobby;?></td>
                             <td><?php echo $friend_phone;?></td>
                            
-                            <td><img class="thumbnail" style="height: 100px; width: 100px;" src="<?php echo base_url(); ?>uploads/images/<?php echo $row->friend_image; ?>"></td>
+                            <td><img class="thumbnail" style="height: 100px; width: 100px;" src="<?php echo base_url(); ?>uploads/images/<?php echo $row->friend_image; ?>"/></td>
                            
                             <td> 
-                            <?php echo anchor("friends/hello/hello_world/".$id,"View");?>
-                    <a href="<?php echo site_url()?>friends/hello/hello_world/">
+                            <button><?php echo anchor("friends/hello/welcome/".$id,"View");?></button>
+                    
+                    
+                            <button> <?php echo anchor("friends/hello/welcome/".$id,"Edit");?></button>
+                                
+
+                            <button>  <?php echo anchor("friends/hello/welcome/".$id,"A/D");?></button>
+                            
+
+                            <button> <?php echo anchor("friends/hello/welcome/".$id,"Delete");?></button>
+                   
                         </td>
                     </tr>
                     <?php

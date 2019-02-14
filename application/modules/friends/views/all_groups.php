@@ -52,7 +52,7 @@
                            
                             <td> 
                             <!-- <//?php echo anchor("groups/groups/welcome/".$id,"View");?> -->
-                    <a href="<?php echo site_url()?>friends/groups/welcome/">
+                    <a href="<?php echo site_url()?>friends/groups/index/">
                         </td>
                     </tr>
                     <?php

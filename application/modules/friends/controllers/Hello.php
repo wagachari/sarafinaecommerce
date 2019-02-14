@@ -43,7 +43,7 @@ class Hello extends MX_Controller
         
 
         $data = array(
-            "title" => "ecommerce",
+            "title" => "search results",
             "content" =>$this->load->view("friends/execute_search", $v_data, TRUE)
         );
         $this->load->view("site/layouts/layout", $data);
@@ -65,21 +65,21 @@ class Hello extends MX_Controller
                 $friend_phone =$row->friend_phone;
                 $friend_image = $row->friend_image;
                 $validation_errors='';
-                $data = array(
-                    "friend_name" => $friend,
-                    "friend_age" => $age,
-                    "friend_gender" => $gender,
-                    "friend_hobby" => $hobby,
-                    "friend_phone"=>$friend_phone,
-                    "friend_image" => $friend_image,
-                    "validation_errors" => $validation_errors,
-                );
-               
-                $this->load->view("friends/welcome_here", $data);
-                
+              
+        $v_data = array("friend_name" => $friend,
+        "friend_age" => $age,
+        "friend_gender" => $gender,
+        "friend_hobby" => $hobby,
+        "friend_phone"=>$friend_phone,
+        "friend_image" => $friend_image,
+        "validation_errors" => $validation_errors,);
+        
+
         $data = array(
-            "title" => "ecommerce",
-                   );
+            "title" => "Add friend",
+            "content" =>$this->load->view("friends/welcome_here", $v_data, TRUE)
+        );
+                               
         $this->load->view("site/layouts/layout", $data);
             }
             
@@ -96,35 +96,47 @@ class Hello extends MX_Controller
             $this->form_validation->set_rules("first_name", 'First Name', "required");
             $this->form_validation->set_rules("age", 'Age', "required|numeric");
             $this->form_validation->set_rules("gender", 'Gender', "required");
-            $this->form_validation->set_rules("image", 'Image');
+            $this->form_validation->set_rules("userfile", 'Image');
             $this->form_validation->set_rules("hobby", 'Hobby', "required");
             $this->form_validation->set_rules("age", 'Age', "required|numeric");
             $this->form_validation->set_rules("phone", 'Phone Number', "required|numeric");
             $validation_errors = '';
+            $this->load->library('image_lib');
             if ($this->form_validation->run()) {
+               // $environmental_beauty_id = $this->friend_model->add_item($image);    
                 
-                $config['upload_path'] = './uploads/images';
-                $config['allowed_types'] = 'gif|jpg|png|jpeg';
-                $config['max_size'] = '6000'; // max size in KB
-                $config['max_width'] = '20000'; //max resolution width
-                $config['max_height'] = '20000';  //max resolution height
-                $config['image_library'] = 'gd2';
-                // load CI libarary called upload
-                $this->load->library('upload', $config);
-                // body of if clause will be executed when image uploading is failed
-                if(!$this->upload->do_upload()){
-                $errors = array('error' => $this->upload->display_errors());
-                // This image is uploaded by deafult if the selected image in not uploaded
-                $friend_image = 'no_image.png';    
-                }
-                // body of else clause will be executed when image uploading is succeeded
-                else{
-                $data = array('upload_data' => $this->upload->data());
-                $friend_image = $_FILES['userfile']['name'];  //name must be userfile
-                //var_dump($friend_image);die();
+                    $config['upload_path'] = './uploads/images';
+                    $config['allowed_types'] = 'gif|jpg|png|jpeg|JPG';
+                    $config['max_size'] = '5000'; // max size in KB
+                    $config['max_width'] = '200000'; //max resolution width
+                    $config['max_height'] = '20000';  //max resolution height
+                    $config['image_library'] = 'gd2';
+                   // $config['source_image'] = '/path/to/image/mypic.jpg';
+                    // $config['create_thumb'] = TRUE;
+                    // $config['maintain_ratio'] = TRUE;
+                    // $config['width'] = 75;
+                    // $config['height'] = 50;
+    
+                    $this->load->library('image_lib', $config);
+    
+                    $this->image_lib->resize();
+                    // load CI libarary called upload
+                    $this->load->library('upload', $config);
+                    // body of if clause will be executed when image uploading is failed
+                    if(!$this->upload->do_upload()){
+                     $errors = array('error' => $this->upload->display_errors());
+                     // This image is uploaded by deafult if the selected image in not uploaded
+                     $friend_image = 'no_image.png';    
+                    }
+                    // body of else clause will be executed when image uploading is succeeded
+                    else{
+                     $data = array('upload_data' => $this->upload->data());
+                     $friend_image = $_FILES['userfile']['name'];  //name must be userfile
+                     
+                
                 }   
                 $this->friends_model->add_friend($friend_image); 
-                
+                //var_dump($friend_image);die();
                     $this->session->set_flashdata ("success_message", "New item". $friend_id. "has been added");
                     redirect("friends/hello");
                     
@@ -140,10 +152,19 @@ class Hello extends MX_Controller
                 // }
             }
 
+            //
+            $v_data = array("validation_errors" => validation_errors());
+        
+
+        $data = array(
             
-            $data["validation_errors"] = validation_errors();
-            $this->load->view("site/layouts/layout");
-            $this->load->view("friends/add_friends", $data);
+            "title" => "new friend",
+            "content" =>$this->load->view("friends/add_friends", $v_data, TRUE)
+        );
+        $this->load->view("site/layouts/layout", $data);
+            //
+           
+           
             
         }
 }

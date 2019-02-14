@@ -9,7 +9,7 @@ class Auth extends MX_Controller{
 
     }
     public function index(){
-
+        $this->load->view("auth/index");
     }
     public function login_admin(){
         //1. Validation rules
@@ -37,6 +37,11 @@ class Auth extends MX_Controller{
         "login"=>TRUE,
     );
     $this->load->view("site/layouts/login",$data);
+}
+public function admin_logout(){
+    $this->session->sess_destroy();
+    
+    redirect('auth');
 }
 }
 ?>

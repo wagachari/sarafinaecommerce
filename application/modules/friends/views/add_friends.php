@@ -13,7 +13,7 @@
 }
 ?>
 			
-		<?php echo form_open($this->uri->uri_string()); ?>
+		<?php echo form_open_multipart($this->uri->uri_string()); ?>
 		<div>
 			<label for='first_name'>First Name: </label>
 			<input type="text" name="first_name">
@@ -48,7 +48,7 @@
 			<input type="submit" value="welcome friend" class="button1">
 		</div>
 		<?php echo form_close(); ?>
-	</div>
+	
 </div>
 </div>
 </div>
