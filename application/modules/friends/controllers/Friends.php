@@ -13,7 +13,7 @@ class Friends extends MX_Controller
 
     public function index()
     {
-        $v_data["all_friends"]= $this->friends_model->get_friend();
+        $v_data["all_friends"]= $this->friends_model->get_all_friends();
        
         $data=array(
             "title"=>$this->site_model->display_page_title(),

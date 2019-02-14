@@ -46,7 +46,7 @@
             </tr>
             <?php
             if($all_friends->num_rows()>0){
-                $count=0;
+                $count=$page;
                 foreach($all_friends->result()
                  as $row){
                     {
@@ -94,7 +94,7 @@
             }
           ?>
 </table>
-<!-- <//?php echo ('<div id="pagination">'. $this->pagination->create_links().'</div>');?> -->
+<?php echo ('<div id="pagination">'. $this->pagination->create_links().'</div>');?>
         </div>
 </body>
 </html>

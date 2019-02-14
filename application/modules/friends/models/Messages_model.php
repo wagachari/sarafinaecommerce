@@ -6,14 +6,7 @@ $data=array(
   
 $this->db->insert("message",$data);
    } 
-//    public function get_friend(){
-//        $this->db->order_by("created","DESC");
-//        return $this->db->get('group_table');
-//    }
-//    public function get_single($friend_id){
-//     $this->db->where("group_table_id",$friend_id);
-//     return $this->db->get("group_table");
-//    }
+
    public function get_message_info(){
    // $this->db->select('message.message_id, message.message, message.created,
    // friend_group_table.friend_group_table_id');
@@ -21,7 +14,8 @@ $this->db->insert("message",$data);
    $this->db->order_by("created","DESC");
   
    return $this->db->get('message');
-  
+  //Joining the tables
+  e
 
   
    
