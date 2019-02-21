@@ -14,12 +14,12 @@ class Auth extends MX_Controller{
     public function login_admin(){
         //1. Validation rules
         $this->form_validation->set_rules("user_email","Email address","required");
-        $this->form_validation->set_rules("user_password","Password","required");
+        $this->form_validation->set_rules("password","Password","required");
         //2. Check if validation rules pass
         if($this->form_validation->run()){
             if($this->auth_model->validate_user())
             {
-                redirect("friends");
+                redirect("backoffice/Manage_user_type_role");
             }
         }
         
@@ -39,9 +39,10 @@ class Auth extends MX_Controller{
     $this->load->view("site/layouts/login",$data);
 }
 public function admin_logout(){
+    echo "logout";
     $this->session->sess_destroy();
     
-    redirect('auth');
+    redirect('admin/login');
 }
 }
 ?>

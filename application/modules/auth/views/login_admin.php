@@ -6,7 +6,7 @@
   <label for="inputEmail" class="sr-only">Email address</label>
   <input type="email" name="user_email" id="user_email"  class="form-control" placeholder="Email address"   autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
-  <input type="password" name="user_password" id="user_password"  class="form-control" placeholder="Password">
+  <input type="password" name="password" id="password"  class="form-control" placeholder="Password">
  
   <button class="btn btn-lg btn-primary btn-block" type="submit">login</button>
   

@@ -2,32 +2,33 @@
 
   <nav class="col-md-2 d-none d-md-block bg-light sidebar mt-50">
   <div class="sidebar-sticky" style ="margin-top:25%;">
+  
     <ul class="nav flex-column"> 
       
        
       <li class="nav-item">
         <a class="nav-link active" href="#">
           <span data-feather="home"></span>
-          <?php echo anchor("friends/hello/index","Hello");?> <span class="sr-only">(current)</span>
+          <?php echo anchor("backoffice/Manage_users/index","View users");?> <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">
-          <span data-feather="file"></span>
-          <?php echo anchor("friends/groups/index","Groups");?> <span class="sr-only">(current)</span>
+          <span data-feather="home"></span>
+          <?php echo anchor("backoffice/Manage_user_type_role","Manage user type roles");?> <span class="sr-only">(current)</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="#">
           <span data-feather="home"></span>
-          <?php echo anchor("friends/friends/index","Friends"); ;?> <span class="sr-only">(current)</span>
+          <?php echo anchor("backoffice/admin_portal","Import/Export"); ;?> <span class="sr-only">(current)</span>
          
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="#">
           <span data-feather="home"></span>
-          <?php echo anchor("friends/messages/index","Messages"); ;?> <span class="sr-only">(current)</span>
+          <?php echo anchor("backoffice/Message_user/index","Manage Locations"); ;?> <span class="sr-only">(current)</span>
          
         </a>
       </li>

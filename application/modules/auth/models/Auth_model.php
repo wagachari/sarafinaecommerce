@@ -6,7 +6,7 @@ class Auth_model extends CI_Model{
     {
         $where=array(
             "user_email"=>$this->input->post("user_email"),
-            "user_password"=>md5($this->input->post("user_password")),
+            "password"=>md5($this->input->post("password")),
         );
         
         $this->db->where($where);

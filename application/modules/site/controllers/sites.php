@@ -3,7 +3,8 @@ class sites extends MX_Controller
 {
      function __construct(){
         parent:: __construct();
-        $this->load->model("friends/friends_model");
+        $this->load->model("backoffice/Admin_portal_model");
+        $this->load->model("auth/auth_model");
         // $this->load->view("hello_world");
     }
 

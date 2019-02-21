@@ -110,7 +110,7 @@ class CI_Image_lib {
 	 *
 	 * @var bool
 	 */
-	public $create_thumb		= FALSE;
+	public $create_thumb		= TRUE;
 
 	/**
 	 * String to add to thumbnail version of image
